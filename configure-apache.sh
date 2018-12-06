@@ -13,12 +13,12 @@ if [ -z $1 ]; then
   echo "Must supply folder to create app in as an argument"
   exit 1
 else
-  if [ -d $1 ] && [ ! -z "$( ls -A $1 )" ]; then
-    echo "$1 is not empty.  Must supply empty directory as an arguement"
+  if [ -d $1 ] && [ ! -f $1/package.json ]; then
+    echo "$1/package.json does not exist.  Must have a package initialized at $1"
     exit 1
   fi
 fi
-APP_FOLDER=$1
+APP_FOLDER=$( cd $1 && pwd )
 
 # Configure apache to forward to the express app port
 # https://docs.bitnami.com/aws/infrastructure/nodejs/administration/create-custom-application-nodejs/
