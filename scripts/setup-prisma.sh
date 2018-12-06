@@ -8,7 +8,7 @@ npm install -g prisma
 
 mkdir -p prisma-server
 cd prisma-server
-echo 'version: '3'
+echo 'version: "3"
 services:
   prisma:
     image: prismagraphql/prisma:1.22

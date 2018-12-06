@@ -22,11 +22,19 @@ echo creating graphql server app in directory $APP_DIR
 echo Installing yarn
 sudo npm -g install yarn
 
-mkdir -p $APP_DIR
+mkdir -p $APP_DIR/temp
+# cd $APP_DIR
+# yarn init -y
+
+# yarn add graphql-yoga
+
+# # copy templates into project
+# cp -r $SCRIPT_DIR/templates/src .
+
+git clone https://github.com/prisma/prisma-examples/ $APP_DIR/temp
+cp -r $APP_DIR/temp/node/graphql/* $APP_DIR
+rm -rf $APP_DIR/temp
 cd $APP_DIR
-yarn init -y
-
-yarn add graphql-yoga
-
-# copy templates into project
-cp -r $SCRIPT_DIR/templates/src .
+yarn install
+sudo npm -g install prisma
+prisma deploy
