@@ -1,0 +1,9 @@
+{
+  "name": "lightsail-graphql",
+  "version": "1.0.0",
+  "description": "Quickstart script to setup graphql server on AWS lightsail nodejs",
+  "main": "index.js",
+  "repository": "https://github.com/strickc/lightsail-graphql",
+  "author": "Connor Stricklan",
+  "license": "MIT"
+}
