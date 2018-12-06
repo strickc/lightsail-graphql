@@ -24,30 +24,7 @@ mkdir -p $APP_DIR
 cd $APP_DIR
 yarn init -y
 
-mkdir src
-
 yarn add graphql-yoga
 
-echo 'const { GraphQLServer } = require("graphql-yoga")
-
-// 1
-const typeDefs = `
-type Query {
-  info: String!
-}
-`
-
-// 2
-const resolvers = {
-  Query: {
-    info: () => `This is the API of a Hackernews Clone`
-  }
-}
-
-// 3
-const server = new GraphQLServer({
-  typeDefs,
-  resolvers,
-})
-server.start(() => console.log(`Server is running on http://localhost:4000`));
-' > src/index.js
+# copy templates into project
+cp -r $SCRIPT_DIR/templates/src .
