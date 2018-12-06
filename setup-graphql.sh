@@ -8,9 +8,15 @@
 # stop script on error
 set -e
 
+FOLDER=$1
+if [ -z "$1" ]; then
+  echo No folder path supplied.  Using \"../test\"
+  FOLDER=../test
+fi
+
 # create the server
-./create-graphql-server.sh ../test
+./create-graphql-server.sh $FOLDER
 
-./configure-apache.sh ../test
+./configure-apache.sh $FOLDER
 
-node ../test/src/index.js
+node $FOLDER/src/index.js

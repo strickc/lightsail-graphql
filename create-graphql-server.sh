@@ -3,6 +3,8 @@
 # stop script on error
 set -e
 
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+
 # check if path is supplied
 if [ -z $1 ]; then
   echo "Must supply folder to create app in as an argument"
